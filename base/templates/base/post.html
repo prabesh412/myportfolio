@@ -1,0 +1,52 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="main-container">
+    <br>
+
+    <div class="img-container">
+        <img src="{% static 'base/images/Dash.jpeg' %}">
+    </div>
+    
+    <h3>Nepse Data Scraper</h3>
+
+    <p>This was a project I did in november when I got a request from fellow reddit friend to help him with data scraping . I was the sole creator/developer of this project.
+    <br>
+    <br>
+    The system stored scraped data from mero lagani website which will be crawled by a powerful python spider created using scrapy.
+    <br>
+    <br>
+    Fields like date and time, Share unit, Price , LTP will be provided for the user by this Scraper.
+    <br>
+    <br>
+    Data can be further uploaded to excel format or json format.
+    <br>
+    <br>
+    I worked on various project like this using scraper and web drivers.</p>
+
+    <h5>Technologies:</h5>
+    <ul>
+        <li>- Python</li>
+        <li>- Scrapy</li>
+        <li>- Selenium</li>
+        <li>- Postgres</li>
+        
+    </ul>
+
+
+
+
+    <h6>Sample Data</h5>
+    <div class="img-container">
+        <img src="{% static 'base/images/sample-form.png' %}">
+    </div>
+
+    <h5>Results Input Fields</h5>
+    <div class="img-container">
+        <img src="images/results.jpg">
+    </div>
+
+
+</div>
+{% endblock content %}
