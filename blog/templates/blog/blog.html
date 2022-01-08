@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post Name</title>
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'base/styles/default.css'%}">
+
+
+
+	
+</head>
+<body>
+	<div class="nav-wrapper">
+
+	
+		<a href="{% url 'home' %}">
+			<div class="dots-wrapper">
+				<div id="dot-1" class="browser-dot"></div>
+				<div id="dot-2" class="browser-dot"></div>
+				<div id="dot-3" class="browser-dot"></div>
+			</div>
+		</a>
+
+		
+	</div>
+    <main role="main">
+        <div class="container">
+          <h1 class="text-center pt-3"> Welcome to prabesh blog's</h1>
+    
+          <br>
+          <br>
+          <h2>Latest Post</h2>
+          <hr>
+          <br>
+          {% for blogs in blog.all %}
+          <div class="col-md-6">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <strong class="d-inline-block mb-2 text-success">Design</strong>
+                <h3 class="mb-0">
+                  <a class="text-dark" href="{% url 'detail' blogs.id %}">{{blogs.title}}</a>
+                </h3>
+                <div class="mb-1 text-muted">{{blogs.pub_date}}</div>
+                <p class="card-text mb-auto">{{blogs.summary}}</p>
+                <a href="{% url 'detail' blogs.id %}">Continue reading</a>
+              </div>
+              <img class="image-fluid" imageclass="card-img-right flex-auto d-none d-md-block" src="{{blogs.image.url}}" height="225" width="225">
+            </div>
+          </div>
+            
+            {% endfor %}
+    
+         
+          </div>
+        </main>
+
+
+
+
+
+</body>
+</html>

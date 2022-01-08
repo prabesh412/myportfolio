@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base.apps.BaseConfig',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,6 @@ EMAIL_HOST_PASSWORD = 'bwouagkyszrjlpkx'
 EMAIL_PORT =587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
