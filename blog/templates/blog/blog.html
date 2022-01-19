@@ -28,7 +28,18 @@
 				<div id="dot-3" class="browser-dot"></div>
 			</div>
 		</a>
-
+    {% if user.is_authenticated %}
+			<a class="nav-link" href="{% url 'logout' %}">Logout </a>
+                
+                  
+        {% else %}
+		<ul id="navigation">
+			<li><a href="{% url 'signup' %}">Signup</a></li>
+			<li><a href="{% url 'login' %}">Login          .</a></li>
+		</ul>
+		{% endif %}    
+                
+		
 		
 	</div>
     <main role="main">
