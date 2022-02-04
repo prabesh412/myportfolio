@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 
 
 
-
-
 def blog(request):
     blogs = Blog.objects
     return render(request, 'blog/blog.html', {'blog':blogs})

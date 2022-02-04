@@ -24,7 +24,10 @@ def login(request):
         user = auth.authenticate(username=request.POST.get('email'),password=request.POST.get('password1'))
         if user:
             auth.login(request, user)
-            return redirect('blog')
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
+            else:
+                return redirect('blog')
         else:        
             return render(request, 'users/login.html',{'error1': 'email or password incorrect'})
     return render(request, 'users/login.html')
