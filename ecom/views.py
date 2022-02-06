@@ -35,3 +35,9 @@ def cart1(request):
     cart1 = cart.objects.filter(customer=request.user)
    
     return render(request,'ecom/cart.html', {'cart': cart1})
+
+
+def items(request, item):
+
+    products= product.objects.all()
+    return render(request,'ecom/items.html', {'item':item, 'product': products})

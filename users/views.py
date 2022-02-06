@@ -12,8 +12,7 @@ def signup(request):
                 return render(request, 'users/signup.html', {'error': 'user has already register'})
             except User.DoesNotExist:
                 user = User.objects.create_user(username=request.POST.get('email',False), password=request.POST.get('password1'))
-                auth.login(request, user)
-                return redirect('blog')
+                return redirect('login')
 
         else:
             return render(request, 'users/signup.html', {'error': 'password must match'})  
