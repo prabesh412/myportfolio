@@ -1,17 +1,21 @@
 {% extends "base/base.html" %}
 {% block content %}
+
 <div class="nav-link">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       Dropdown button
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
       {% for names in name %}
         <li><a class="dropdown-item" href="{% url 'items' names %}">{{names}}</a></li>
       {% endfor %}
+
     </ul>
     </div>
   </div>
+  
 
 {% for names in name %}
 

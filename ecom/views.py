@@ -9,6 +9,7 @@ def frontpage(request):
     products = product.objects.all
     category = Category.objects.all()
     name = [] 
+
     for categorys in category:
         name.append(categorys.name)
     
@@ -41,3 +42,12 @@ def items(request, item):
 
     products= product.objects.all()
     return render(request,'ecom/items.html', {'item':item, 'product': products})
+
+
+def search1(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        products = product.objects.filter(product_name__icontains=searched)
+        return render(request, "ecom/search.html", {'data': searched, 'product':products})
+
+    
