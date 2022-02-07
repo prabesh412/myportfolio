@@ -21,9 +21,10 @@ def detail(request, product_id1):
     product1 = get_object_or_404(product, pk=product_id1)
     if request.method == 'POST':    
         carts = cart()
-        in_cart = cart.objects.filter(products=product1)
-        if in_cart:
-            return HttpResponse("product is already on cart")
+        in_cart = cart.objects.filter(customer=request.user)
+        for cart1 in in_cart:
+            if cart1.products == product1:
+                return HttpResponse('already in cart')
         
         carts.products = product1
         carts.customer = request.user        
