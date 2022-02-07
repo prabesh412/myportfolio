@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from django.contrib.auth import logout as django_logout
+from django.http import HttpResponseRedirect
+
 
 # Create your views here.
 def signup(request):
@@ -35,5 +37,5 @@ def login(request):
 def logout(request):
     django_logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect('blog')
+    return redirect('frontpage')
     

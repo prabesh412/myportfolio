@@ -7,11 +7,11 @@
       Dropdown button
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
+      {% if name %}
       {% for names in name %}
         <li><a class="dropdown-item" href="{% url 'items' names %}">{{names}}</a></li>
       {% endfor %}
-
+      {% endif %}
     </ul>
     </div>
   </div>
