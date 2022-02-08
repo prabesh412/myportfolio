@@ -1,7 +1,6 @@
 {% extends "base/base.html" %}
 {% block content %}
     <main role="main">
-        <div class="container">
           <h1 class="text-center pt-3">{{product.product_name}}</h1>
             
         
@@ -19,10 +18,21 @@
               </div>
               
             </div>
-          </div>
-            
-            
-         
+            <br>
+            <br>
+            <br>
+            <div class="container">
+            <form method="POST" action="{% url 'upload' %}" enctype="multipart/form-data">
+
+              {% csrf_token %}
+              
+
+             <p style="text-align:center">comment</p>
+            <textarea id="txtArea" rows="2" cols="80" name="body"></textarea>
+            <br>
+            <input class="btn btn-primary"  type="submit" value="comment"/>
+          </form>
+        </div>
           </div>
         </main>
 
