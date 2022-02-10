@@ -38,16 +38,11 @@
 			</div>
 		</a>
 		
-		<form class="d-flex" method="post" action="{% url 'search' %}">
-			{% csrf_token %}
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
-			<button class="btn btn-outline-success" type="submit">Search</button>
-		  </form>
+		
 		
 		{% if user.is_authenticated %}
 		<ul id="navigation">
 			<li><a href="{% url 'logout' %}">Logout </a></li>
-			<li><a href="{% url 'cart1' %}">Cart</a></li>
 		</ul>   
                   
         {% else %}

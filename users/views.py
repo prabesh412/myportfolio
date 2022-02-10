@@ -37,5 +37,5 @@ def login(request):
 def logout(request):
     django_logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect('frontpage')
+    return redirect('blog')
     

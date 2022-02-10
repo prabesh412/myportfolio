@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'blog',
     'users',
-    'ecom',
-    'ecom.api',
+
     'rest_framework',
 ]
 
