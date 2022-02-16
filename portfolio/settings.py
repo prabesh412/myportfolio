@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'blog',
     'users',
-
+    'expense',
     'rest_framework',
 ]
 

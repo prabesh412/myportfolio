@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{%block content%}
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-9 col-xl-7">
+          <div class="card rounded-3">
+            <div class="card-body p-4">
+  
+              <h4 class="text-center my-3 pb-3">Expense of {{request.user.username}}</h4>
+  
+              <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" method="POST" action="{% url 'expense' %}">
+                {% csrf_token %}
+                <div class="col-12">
+                  <div class="form-outline">
+                    <input type="text"  name="reason" class="form-control" placeholder="Enter your expense"/>
+                    <Br>
+                    <input type="text" name="amount" class="form-control" placeholder="Enter the amount"/>
+  
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <input class="btn btn-primary"  type="submit" value="add product"/>
+                </div>
+              </form>
+              <table class="table mb-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for datas in data %}
+                  <tr>
+                    <th scope="row">{{datas.date}}</th>
+                    <td>{{datas.reason}}</td>
+                    <td>{{datas.amount}}</td>
+                    <td>
+                      <form method="POST" action="{% url 'delete' datas.id %}">
+                        {% csrf_token %}
+                        
+                      <button type="submit"  class="btn btn-danger" name="delete">Delete</button>
+                    </form>
+                    </td>
+                  
+                  </tr>
+                  {% endfor %}
+                  
+                </tbody>
+                
+              </table>
+              <p>total: {{total}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
